@@ -4,6 +4,7 @@ const Spot = require('../database/spotSchema')
 
 exports.addSpot =  async (req, res) => {
     const spot = req.body;
+    console.log(spot)
     
     try {
         const data =  new Spot(spot)
@@ -25,5 +26,19 @@ exports.getSpot =  async (req, res) => {
         
     }catch(error) {
         res.status(500).send({msg: error})
+    }
+}
+exports.getSpotsAroundMe =  async (req, res) => {
+    
+    const postalCode = req.params.pc;
+    console.log(postalCode)
+
+    try {
+        const spot = await Spot.find({postal_code: '37007'})
+        
+        res.status(200).send(spot);
+
+    }catch(error) {
+        res.status(500).send({msg: error});
     }
 }
