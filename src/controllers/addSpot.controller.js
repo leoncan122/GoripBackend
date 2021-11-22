@@ -4,6 +4,7 @@ const Spot = require('../database/spotSchema')
 
 exports.addSpot =  async (req, res) => {
     const spot = req.body;
+    console.log(spot)
     
     try {
         const data =  new Spot(spot)
