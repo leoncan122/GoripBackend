@@ -21,7 +21,7 @@ exports.login = async (req, res) => {
         const checkUser = await User.find(body);
 
         if(checkUser.length < 1) {
-            return res.status(404).send({msg: 'User not found'});
+            return res.status(401).send({msg: 'User not found'});
         }
 
         res.status(200).send({msg: 'loged'});
