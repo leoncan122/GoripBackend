@@ -2,13 +2,13 @@ const Spot = require("../database/spotSchema");
 
 exports.addSpot = async (req, res) => {
   const spot = req.body;
-
   try {
     const existingSpot = await Spot.find({ address: spot.address });
+
     const data = new Spot(spot);
-    if (!existingSpot) {
+    if (existingSpot.length === 0) {
       await data.save();
-      res.status(201).send(spot);
+      return res.status(201).send(spot);
     }
     res.status(422).send({ msg: "Spot already exists" });
   } catch (error) {
