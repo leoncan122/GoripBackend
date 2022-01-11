@@ -1,4 +1,5 @@
 const User = require("../database/userSchema");
+const jwt = require("jsonwebtoken");
 
 exports.signUp = async (req, res) => {
   const body = req.body;
@@ -18,6 +19,10 @@ exports.login = async (req, res) => {
 
   try {
     const checkUser = await User.find(body);
+    const payload = JSON.stringify(checkUser[0]._id);
+    const token = jwt.sign({ userId: payload }, "hola", {
+      expiresIn: "1h",
+    });
 
     const result = checkUser.some((user) => (user.email = body.email));
     if ((checkUser.length < 1) | (result === false)) {
@@ -26,8 +31,12 @@ exports.login = async (req, res) => {
         .send({ authenticated: false, status: "User not found" });
     }
 
-    res.status(200).send({ authenticated: true, status: "loged" });
+    res
+      .status(200)
+      .send({ authenticated: true, status: "loged", token: token });
   } catch (error) {
-    res.status(500).send({ authenticated: true, status: error });
+    return res
+      .status(500)
+      .send({ authenticated: false, status: "Unauthorized" });
   }
 };

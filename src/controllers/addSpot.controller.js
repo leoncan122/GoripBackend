@@ -41,3 +41,14 @@ exports.getSpotsAroundMe = async (req, res) => {
     res.status(500).send({ msg: error });
   }
 };
+exports.testToken = async (req, res) => {
+  const { id } = req;
+  console.log(id);
+
+  try {
+    const spot = await Spot.findById(id);
+    res.status(200).send(spot);
+  } catch (error) {
+    res.status(500).send({ msg: error });
+  }
+};
