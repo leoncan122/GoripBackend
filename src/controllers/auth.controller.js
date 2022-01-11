@@ -1,6 +1,7 @@
 const User = require("../database/userSchema");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 
 exports.signUp = async (req, res) => {
   const body = req.body;
@@ -12,7 +13,7 @@ exports.signUp = async (req, res) => {
     const newUser = new User(body);
     await newUser.save();
 
-    res.status(200).send({ msg: "Signed up", authorized: true });
+    res.status(200).send({ status: "Signed up", authenticated: true });
   } catch (error) {
     res.status(500).send({ msg: error });
   }
@@ -20,20 +21,23 @@ exports.signUp = async (req, res) => {
 
 exports.login = async (req, res) => {
   const body = req.body;
+  console.log(process.env.tokenSecret);
 
   try {
     const checkUser = await User.find({ email: body.email });
 
-    //const result = checkUser.some((user) => (user.email = body.email));
     if (checkUser.length < 1) {
       return res
         .status(401)
         .send({ authenticated: false, status: "User not found" });
     }
     const payload = JSON.stringify(checkUser[0]._id);
-    const token = jwt.sign({ userId: payload }, "hola", {
+
+    const token = jwt.sign({ userId: payload }, process.env.tokenSecret, {
       expiresIn: "1h",
     });
+    console.log(token);
+
     const passIsValid = await bcrypt.compare(
       body.password,
       checkUser[0].password
