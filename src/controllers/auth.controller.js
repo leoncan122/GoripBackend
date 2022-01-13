@@ -5,8 +5,7 @@ require("dotenv").config();
 
 exports.signUp = async (req, res) => {
   const body = req.body;
-  const salt = await bcrypt.genSalt(10);
-  const hashedPass = await bcrypt.hash(body.password, salt);
+  const hashedPass = await bcrypt.hashSync(body.password, 10);
 
   body.password = hashedPass;
   try {
@@ -21,12 +20,10 @@ exports.signUp = async (req, res) => {
 
 exports.login = async (req, res) => {
   const body = req.body;
-  console.log(process.env.tokenSecret);
 
   try {
     const checkUser = await User.find({ email: body.email });
-
-    if (checkUser.length < 1) {
+    if (checkUser.length === 0) {
       return res
         .status(401)
         .send({ authenticated: false, status: "User not found" });
@@ -36,17 +33,14 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ userId: payload }, process.env.tokenSecret, {
       expiresIn: "1h",
     });
-    console.log(token);
-
-    const passIsValid = await bcrypt.compare(
+    const passIsValid = await bcrypt.compareSync(
       body.password,
       checkUser[0].password
     );
-
     if (!passIsValid) {
       return res
         .status(401)
-        .send({ authenticated: false, status: "User not found" });
+        .send({ authenticated: false, status: "invalid password" });
     }
 
     res
