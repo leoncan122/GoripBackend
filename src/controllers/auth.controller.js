@@ -6,7 +6,6 @@ require("dotenv").config();
 exports.signUp = async (req, res) => {
   const body = req.body;
   const hashedPass = await bcrypt.hashSync(body.password, 10);
-
   body.password = hashedPass;
   try {
     const newUser = new User(body);
