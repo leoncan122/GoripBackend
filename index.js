@@ -8,7 +8,11 @@ const { Server } = require("socket.io");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:4200",
+  },
+});
 
 app.use(express.json());
 
@@ -24,6 +28,20 @@ main();
 
 app.use("/api/spots", spots);
 app.use("/api/user", auth);
+
+//socket
+io.on("connection", (socket) => {
+  console.log("socket connected");
+  socket.on("position", (arrayCoords) => {
+    const user = {
+      id: socket.id,
+      latitude: arrayCoords[0],
+      longitude: arrayCoords[1],
+    };
+    // emit the position to the other users excluding me
+    socket.emit("sharingPosition", user);
+  });
+});
 
 server.listen(4000, () => {
   console.log("App is running on port 4000");
