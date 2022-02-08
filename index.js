@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
       longitude: arrayCoords[1],
     };
     // emit the position to the other users excluding me
-    socket.emit("sharingPosition", user);
+    socket.broadcast.emit("sharingPosition", user);
   });
 });
 
