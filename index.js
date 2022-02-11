@@ -4,6 +4,7 @@ const main = require("./src/database/connectBD");
 const spots = require("./src/routes/routesSpots");
 const auth = require("./src/routes/authRoutes");
 const { Server } = require("socket.io");
+require("dotenv").config();
 
 const app = express();
 const http = require("http");
@@ -42,7 +43,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("sharingPosition", user);
   });
 });
-
-server.listen(process.env.PORT | 8080, () => {
-  console.log("App is running on port 4000");
+const PORT = process.env.PORT | 4000;
+server.listen(PORT, () => {
+  console.log(`App is running on port ${PORT}`);
 });
