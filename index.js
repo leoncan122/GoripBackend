@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("sharingPosition", user);
   });
 });
-const PORT = process.env.PORT | 4000;
+const PORT = process.env.PORT | 80;
 server.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
