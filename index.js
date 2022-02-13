@@ -11,7 +11,8 @@ const http = require("http");
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["https://gorip.fun", "localhost:8080"],
+    origin: ["https://gorip.fun", "localhost:4200"],
+    credentials: true,
   },
 });
 
