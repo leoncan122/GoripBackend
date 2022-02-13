@@ -12,7 +12,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: ["https://gorip.fun", "localhost:4200"],
-    credentials: true,
+    methods: ["GET", "POST"],
   },
 });
 
@@ -44,7 +44,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("sharingPosition", user);
   });
 });
-const PORT = process.env.PORT | 8080;
+const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
