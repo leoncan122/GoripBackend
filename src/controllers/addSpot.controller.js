@@ -27,16 +27,16 @@ exports.getSpot = async (req, res) => {
 };
 
 exports.getSpotsAroundMe = async (req, res) => {
-  const postalCode = req.params.pc;
-  const shortPC = postalCode.slice(0, postalCode.length - 1);
+  const city = req.params.city;
+  // const shortPC = postalCode.slice(0, postalCode.length - 1);
 
   try {
-    const spots = await Spot.find({ postal_code: postalCode });
-    const result = spots.filter((spot) =>
-      spot.postal_code.includes(shortPC.toString())
-    );
+    const spots = await Spot.find({ city: city });
+    // const result = spots.filter((spot) =>
+    //   spot.postal_code.includes(shortPC.toString())
+    // );
 
-    res.status(200).send(result);
+    res.status(200).send(spots);
   } catch (error) {
     res.status(500).send({ msg: error });
   }
