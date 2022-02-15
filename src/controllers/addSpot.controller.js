@@ -35,7 +35,6 @@ exports.getSpotsAroundMe = async (req, res) => {
     // const result = spots.filter((spot) =>
     //   spot.postal_code.includes(shortPC.toString())
     // );
-
     res.status(200).send(spots);
   } catch (error) {
     res.status(500).send({ msg: error });
