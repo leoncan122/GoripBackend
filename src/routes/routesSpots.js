@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.post("/", addSpot);
 router.get("/:id", getSpot);
-router.get("/:city", getSpotsAroundMe);
+router.get("/city/:city", getSpotsAroundMe);
 
 module.exports = router;
