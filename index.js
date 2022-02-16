@@ -21,6 +21,8 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
+app.use(fileUpload());
+app.use(express.json());
 
 const corsOptions = {
   "Access-Control-Allow-Origin": "*",
