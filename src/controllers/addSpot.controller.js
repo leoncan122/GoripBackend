@@ -2,6 +2,7 @@ const Spot = require("../database/spotSchema");
 
 exports.addSpot = async (req, res) => {
   const spot = req.body;
+  spot.photo = req.url;
   try {
     const existingSpot = await Spot.find({ address: spot.address });
 
@@ -28,13 +29,9 @@ exports.getSpot = async (req, res) => {
 
 exports.getSpotsAroundMe = async (req, res) => {
   const city = req.params.city;
-  // const shortPC = postalCode.slice(0, postalCode.length - 1);
 
   try {
     const spots = await Spot.find({ city: city });
-    // const result = spots.filter((spot) =>
-    //   spot.postal_code.includes(shortPC.toString())
-    // );
     res.status(200).send(spots);
   } catch (error) {
     res.status(500).send({ msg: error });
@@ -52,6 +49,10 @@ exports.testToken = async (req, res) => {
   }
 };
 exports.saveSpotImage = async (req, res) => {
-  console.log(req.file);
-  res.status(200).send("image received");
+  try {
+    console.log(req.body);
+    res.status(200).send("image received");
+  } catch (error) {
+    res.status(500).send({ msg: error });
+  }
 };

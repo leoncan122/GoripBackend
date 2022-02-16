@@ -8,6 +8,7 @@ const spotSchema = new mongoose.Schema({
   description: String,
   lat: Number,
   long: Number,
+  photo: String,
 });
 
 const Spot = mongoose.model("Spot", spotSchema);
