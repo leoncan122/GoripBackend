@@ -3,15 +3,15 @@ const {
   addSpot,
   getSpot,
   getSpotsAroundMe,
-  saveSpotImage,
+  downloadSpotImage,
 } = require("../controllers/addSpot.controller");
-const { uploadImageAws } = require("../middlewares/uploadImageAWS");
+const { uploadImageAws } = require("../middlewares/s3Bucket");
 
 const router = express.Router();
 
 router.post("/", uploadImageAws, addSpot);
 router.get("/:id", getSpot);
 router.get("/city/:city", getSpotsAroundMe);
-router.post("/photo", saveSpotImage);
+router.get("/photo/:id", downloadSpotImage);
 
 module.exports = router;

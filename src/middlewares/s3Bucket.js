@@ -9,12 +9,13 @@ aws.config.update({
 });
 
 exports.uploadImageAws = async (req, res, next) => {
+  const fileExtension = req.body.photo.split(";")[0].split(":")[1];
   const s3 = new aws.S3({ params: { Bucket: "gorip-images" } });
   const data = {
-    Key: "spot-".concat(Date.now().toString()),
-    Body: req.body.photo,
+    Key: "spots/spot-".concat(Date.now().toString(), ".txt"),
+    Body: req.body.photo.split(",")[1],
     ContentEncoding: "base64",
-    ContentType: "image/jpeg",
+    ContentType: `${fileExtension}`,
     //ACL: "public-read",
   };
   const result = s3.putObject(data, function (err, data) {
@@ -26,6 +27,13 @@ exports.uploadImageAws = async (req, res, next) => {
       console.log("successfully uploaded the image!");
     }
   });
-  req.url = `${AWS_URL_IMG}/${result.params.Key}`;
+  // console.log(result);
+  req.url = `${AWS_URL_IMG}/spots/${result.params.Key}`;
   next();
+};
+
+exports.downloadImageAws = (id) => {
+  const s3 = new aws.S3({ params: { Bucket: "gorip-images" } });
+  const base64 = s3.getObject({ Key: `spots/${id}.txt` });
+  return base64.promise();
 };

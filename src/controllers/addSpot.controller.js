@@ -1,8 +1,9 @@
 const Spot = require("../database/spotSchema");
+const { downloadImageAws } = require("../middlewares/s3Bucket");
 
 exports.addSpot = async (req, res) => {
   const spot = req.body;
-  spot.photo = req.url;
+  spot.photo = req.url; //change photo propertie from base64 to s3 bucket url
   try {
     const existingSpot = await Spot.find({ address: spot.address });
 
@@ -32,6 +33,17 @@ exports.getSpotsAroundMe = async (req, res) => {
 
   try {
     const spots = await Spot.find({ city: city });
+
+    // const modifiedSpots = spots.map((spot) => ({
+    //   ...spot,
+    //   photo: downloadImageAws(spot.photo).then((data) => {
+    //     const x = data.Body.toString("utf-8"); // Use the encoding necessary
+    //     // console.log(spot);
+    //     return x;
+    //   }),
+    // }));
+    // console.log(modifiedSpots);
+
     res.status(200).send(spots);
   } catch (error) {
     res.status(500).send({ msg: error });
@@ -48,10 +60,13 @@ exports.testToken = async (req, res) => {
     res.status(500).send({ msg: error });
   }
 };
-exports.saveSpotImage = async (req, res) => {
+exports.downloadSpotImage = async (req, res) => {
+  const { id } = req.params;
   try {
-    console.log(req.body);
-    res.status(200).send("image received");
+    downloadImageAws(id).then((data) => {
+      const base64 = data.Body.toString("utf-8"); // Use the encoding necessary
+      res.status(200).send({ photo: base64 });
+    });
   } catch (error) {
     res.status(500).send({ msg: error });
   }
