@@ -8,7 +8,7 @@ aws.config.update({
   region: "eu-west-3",
 });
 
-exports.uploadImageAws = async (req, res, next) => {
+exports.uploadImageAws = (req) => {
   const fileExtension = req.body.photo.split(";")[0].split(":")[1];
   const s3 = new aws.S3({ params: { Bucket: "gorip-images" } });
   const data = {
@@ -28,8 +28,7 @@ exports.uploadImageAws = async (req, res, next) => {
     }
   });
   // console.log(result);
-  req.url = `${AWS_URL_IMG}/spots/${result.params.Key}`;
-  next();
+  return `${AWS_URL_IMG}/spots/${result.params.Key}`;
 };
 
 exports.downloadImageAws = (id) => {

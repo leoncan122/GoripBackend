@@ -1,15 +1,19 @@
 const Spot = require("../database/spotSchema");
-const { downloadImageAws } = require("../middlewares/s3Bucket");
+const { downloadImageAws, uploadImageAws } = require("../middlewares/s3Bucket");
 
 exports.addSpot = async (req, res) => {
   const spot = req.body;
-  spot.photo = req.url; //change photo propertie from base64 to s3 bucket url
   try {
     const existingSpot = await Spot.find({ address: spot.address });
+    //is not a promise because i want to save the spot even if the photo it not saved
+
+    //change photo propertie from base64 to s3 bucket url
+    spot.photo = uploadImageAws(req);
 
     const data = new Spot(spot);
     if (existingSpot.length === 0) {
       await data.save();
+
       return res.status(201).send(spot);
     }
     res.status(422).send({ msg: "Spot already exists" });
