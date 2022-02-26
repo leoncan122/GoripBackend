@@ -44,6 +44,17 @@ io.on("connection", (socket) => {
     // emit the position to the other users excluding me
     socket.broadcast.emit("sharingPosition", user);
   });
+  socket.on("room", ({ roomId, msg }) => {
+    if (!msg) {
+      socket.join(roomId);
+      return socket
+        .to(roomId)
+        .emit("user-connected", { id: "user connected" + roomId });
+    }
+    return socket.to(roomId).emit("msg-room", { msg: msg });
+  });
+  // socket.on('chat-room', (data)=> {
+  // })
 });
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
