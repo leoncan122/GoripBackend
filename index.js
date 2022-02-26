@@ -45,16 +45,15 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("sharingPosition", user);
   });
   socket.on("room", ({ roomId, msg }) => {
+    socket.join(roomId);
+
     if (!msg) {
-      socket.join(roomId);
       return socket
         .to(roomId)
-        .emit("user-connected", { id: "user connected" + roomId });
+        .emit("user-connected", { id: "user connected " });
     }
-    return socket.to(roomId).emit("msg-room", { msg: msg });
+    return socket.to(roomId).emit("msg-room", { from: socket.id, msg: msg });
   });
-  // socket.on('chat-room', (data)=> {
-  // })
 });
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
