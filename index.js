@@ -8,6 +8,7 @@ const fileUpload = require("express-fileupload");
 require("dotenv").config();
 
 const app = express();
+
 const http = require("http");
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -16,8 +17,6 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
-app.use(fileUpload());
-app.use(express.json());
 
 const corsOptions = {
   "Access-Control-Allow-Origin": "*",
@@ -26,6 +25,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use(fileUpload());
+app.use(express.json());
 //conectamos la BD
 main();
 
