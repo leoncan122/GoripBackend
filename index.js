@@ -49,9 +49,10 @@ io.on("connection", (socket) => {
     // emit the position to the other users excluding me
     socket.broadcast.emit("sharingPosition", user);
   });
-  socket.on("room", ({ roomId, msg }) => {
+  socket.on("join-room", (roomId) => {
     socket.join(roomId);
-
+  });
+  socket.on("room", ({ roomId, msg }) => {
     if (!msg) {
       return socket
         .to(roomId)
