@@ -52,13 +52,21 @@ io.on("connection", (socket) => {
   socket.on("join-room", (roomId) => {
     socket.join(roomId);
   });
+  socket.on("unsubscribe", (roomId) => {
+    socket.leave(roomId);
+    socket.in(roomId).emit("msg-room", {
+      from: socket.id,
+      msg: "Ha dejado la conversacion, Adios",
+    });
+  });
   socket.on("room", ({ roomId, msg }) => {
-    if (!msg) {
-      return socket
-        .to(roomId)
-        .emit("user-connected", { id: "user connected " });
-    }
-    return socket.to(roomId).emit("msg-room", { from: socket.id, msg: msg });
+    // if (!msg) {
+    //   return socket
+    //     .to(roomId)
+    //     .emit("user-connected", { id: "user connected " });
+    // }
+
+    return socket.in(roomId).emit("msg-room", { from: socket.id, msg: msg });
   });
 });
 const PORT = process.env.PORT || 8080;
