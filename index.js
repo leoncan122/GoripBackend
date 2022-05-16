@@ -13,12 +13,16 @@ const http = require("http");
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
+<<<<<<< HEAD
     origins: [
       "https://gorip.fun",
       "localhost:4200",
       "https://goripp.herokuapp.com",
     ],
     methods: ["GET", "POST"],
+=======
+    origin: "https://gorip.fun",
+>>>>>>> change cors origin
   },
 });
 
