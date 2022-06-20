@@ -7,11 +7,11 @@ const {
 } = require("../controllers/addSpot.controller");
 const { uploadImageAws } = require("../middlewares/s3Bucket");
 const { saveSpotImage } = require("../controllers/addSpot.controller");
-const { uploadImageAws } = require("../middlewares/uploadImageAWS");
+// const { uploadImageAws } = require("../middlewares/uploadImageAWS");
 
 const router = express.Router();
 
-router.post("/", uploadImageAws, addSpot);
+router.post("/", addSpot);
 router.get("/:id", getSpot);
 router.get("/city/:city", getSpotsAroundMe);
 router.get("/photo/:id", downloadSpotImage);

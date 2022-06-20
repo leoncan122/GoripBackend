@@ -1,10 +1,10 @@
 const aws = require("aws-sdk");
 require("dotenv").config();
-const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_URL_IMG } = process.env;
+const { AWS_ACCESS_KEY, AWS_SECRET_KEY, AWS_URL_IMG } = process.env;
 
 aws.config.update({
-  accessKeyId: AWS_ACCESS_KEY_ID,
-  secretAccessKey: AWS_SECRET_ACCESS_KEY,
+  accessKeyId: AWS_ACCESS_KEY,
+  secretAccessKey: AWS_SECRET_KEY,
   region: "eu-west-3",
 });
 
@@ -27,7 +27,7 @@ exports.uploadImageAws = (req) => {
       console.log("successfully uploaded the image!");
     }
   });
-  // console.log(result);
+   console.log(result);
   return `${AWS_URL_IMG}/spots/${result.params.Key}`;
 };
 

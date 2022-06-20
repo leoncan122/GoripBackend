@@ -1,0 +1,317 @@
+[33mcommit abe6bc299d31fd1fa8a7d5a556f60c3948a594dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Feb 16 04:42:57 2022 +0100
+
+    add uploadImagesAws middleware
+
+[33mcommit b8ebe8916acc12bc99296b2c2091378d7eb7be7b[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 23:11:01 2022 +0100
+
+    change cors origin
+
+[33mcommit 02244779b7e22f7b8dd21989e23e149176f44cd8[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Mon May 16 11:14:56 2022 +0200
+
+    pack.json
+
+[33mcommit d264ad96fa5b6ef48a53938ab3fa766a3073c99e[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 18:35:02 2022 +0100
+
+    pack.json
+
+[33mcommit 5fca7729e7bfb9ce386e2f0b54f67890e3f32dc3[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Mon May 16 11:06:06 2022 +0200
+
+    fixing
+
+[33mcommit 21c2f52806f16ea185c54b9bb51c3633643b2e2f[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Mar 5 14:10:18 2022 +0100
+
+    resolved rooms sockets
+
+[33mcommit e462caf0e87c33f3668374706ffa47925b737e12[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Fri Mar 4 00:13:26 2022 +0100
+
+    fix room join chat
+
+[33mcommit 3ba2e12dec95b776217e8db5d2b232e2e86ce217[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Mar 2 19:49:59 2022 +0100
+
+    verifying cors
+
+[33mcommit c0fd347c1b2c2d0fcf9860f3d70a331c1a236639[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Mar 2 19:45:25 2022 +0100
+
+    verifying cors
+
+[33mcommit d83884ccf29a2d5b956caf2014bfa4cf114a8edc[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sun Feb 27 00:38:00 2022 +0100
+
+    fix socket room
+
+[33mcommit e2c2b083da907a010a1761d881f5a4930f1a12df[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 26 20:15:08 2022 +0100
+
+    add socket room
+
+[33mcommit 50a11fa4ef49dc6229d65c4fee58f8e367a91079[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 19 21:56:54 2022 +0100
+
+    refactor uploadImageAws
+
+[33mcommit f8ceada0d5024c83cb934916cebfcc38b63f7a09[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Feb 16 21:03:06 2022 +0100
+
+    add dowloadimage from aws
+
+[33mcommit 07ca4595b99d040655d0274e39f908d36f00e921[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Feb 16 04:42:57 2022 +0100
+
+    add uploadImagesAws middleware
+
+[33mcommit fe8b72504ffdb2b6d78f7673e4e0fcf9779ce48a[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Feb 15 20:48:14 2022 +0100
+
+    add saveSpotImage endpoint
+
+[33mcommit a1b5766e27773f66f393661bafba2054eb4607b3[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Feb 15 01:21:26 2022 +0100
+
+    getSpotsArounMe controller refactored search
+
+[33mcommit 4d11f8b792842c10315ac593aad0577c246ce998[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Feb 15 01:08:08 2022 +0100
+
+    getSpotsArounMe controller refactored search
+
+[33mcommit f3a1ff66faebf315fbfdb72f2cc1cac419806088[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Feb 15 00:00:35 2022 +0100
+
+    getSpotsArounMe controller refactored search
+
+[33mcommit ceb84ca54deafb18a79244e1ab7564da3d540cf3[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sun Feb 13 17:41:47 2022 +0100
+
+    change cors origin
+
+[33mcommit d48be3494bbb5d222350921349eebdfc089c3516[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sun Feb 13 17:03:13 2022 +0100
+
+    change cors origin
+
+[33mcommit 75e08aaf346ff80e40e5c5c429344f7173a896b3[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sun Feb 13 16:49:56 2022 +0100
+
+    change cors origin
+
+[33mcommit 060e008a45ae65c408416a57fe41084f9d985144[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sun Feb 13 16:37:57 2022 +0100
+
+    change cors origin
+
+[33mcommit cbd2b8b9e475e3fd855a5c274dff3ed66d884962[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 23:11:01 2022 +0100
+
+    change cors origin
+
+[33mcommit f2d0e6dfbbbcf8956e834a497ff696fd6291157d[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 20:37:32 2022 +0100
+
+    change cors origin
+
+[33mcommit 497aff82c5bcaeca7c00eba4ea2349ecc54ac21a[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 19:33:15 2022 +0100
+
+    change cors origin
+
+[33mcommit d098e7d8a31e12050097d87f6567782994360db2[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 19:08:51 2022 +0100
+
+    pack.json
+
+[33mcommit 0e96b8df0cc17c2475732cef87aea4655d97b57f[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 18:48:57 2022 +0100
+
+    pack.json
+
+[33mcommit bceb28db1a11fbbce742cf8f8045d123fae81f68[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 18:35:02 2022 +0100
+
+    pack.json
+
+[33mcommit 67f77d3afd10e07c374f02fde7847c94ca6d7f9a[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 01:48:59 2022 +0100
+
+    pack.json
+
+[33mcommit 885ace8d9f12ec584dd2ac8b901d35d8b34a5728[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 01:46:17 2022 +0100
+
+    pack.json
+
+[33mcommit d8d1b855cd5edfa4e71237e4be1c5c925ddd6cca[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 01:25:26 2022 +0100
+
+    pack.json
+
+[33mcommit 3290f1d2388fffd7c475512f9840cf8c4846f4de[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 01:02:26 2022 +0100
+
+    pack.json
+
+[33mcommit fcabc01bff853ccd35ad30d91c9b3ad18bc65c45[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Sat Feb 12 00:49:09 2022 +0100
+
+    add Procfile
+
+[33mcommit e20268accd13e11d9a710bc28275628510820fe7[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Fri Feb 11 23:05:28 2022 +0100
+
+    resolving port
+
+[33mcommit 29f7a0527568d8da685081f0feaca11eb5de6787[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Fri Feb 11 22:27:47 2022 +0100
+
+    fix server.listen
+
+[33mcommit bb8354662ca5380acae60952e9276eb9366e3a6d[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Fri Feb 11 22:02:58 2022 +0100
+
+    fix server.listen
+
+[33mcommit 405f4b972177d64d6ad7792093e873dfbd3286d1[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Feb 8 19:07:53 2022 +0100
+
+    add start script
+
+[33mcommit 4c954b0106f54ac7667bcdaf3486149d46da9f04[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Feb 8 19:03:37 2022 +0100
+
+    add start script
+
+[33mcommit 2a45d8319fa39c9e71ec15fac76906f5e400bcc0[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Feb 1 21:46:01 2022 +0100
+
+    add broadcast emit in socket
+
+[33mcommit 79e2a94fe9260a5e5a21ab4315db93525ab64d8c[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Thu Jan 20 09:18:16 2022 +0100
+
+    fix login controller, and create socket connection
+
+[33mcommit 534539303b96b383506fb2dd47a9681817242cde[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Thu Jan 13 13:52:50 2022 +0100
+
+    fix hash on signup
+
+[33mcommit 756ce7bc9c67291506d09f21276047d8b9ab45eb[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Jan 12 00:40:20 2022 +0100
+
+    add dotenv module
+
+[33mcommit ac871d34d452dd663c32aa81d2356e97028a9e3e[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Jan 11 11:25:10 2022 +0100
+
+    add bcrypt module, and functionalities to auth endpoints
+
+[33mcommit c60c64ea06df24e1497a7db546c4e2a6fe981f46[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Jan 11 01:42:02 2022 +0100
+
+    create auth jwt middleware
+
+[33mcommit c94dc469aede47e95d41488711425693e1d59634[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Thu Jan 6 01:21:10 2022 +0100
+
+    refactor login controller
+
+[33mcommit 3eaaa2d0ae98c3b36fd1bc31d2dd95d292a43d50[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Mon Dec 27 02:26:04 2021 +0100
+
+    addSpot controller refactor
+
+[33mcommit 08851e955b0a3e33ace51a506e76b418ec0ccbfe[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Tue Nov 23 18:33:54 2021 +0100
+
+    create userSchema, authRoutes and login.controller
+
+[33mcommit 88501da812c026e23c1c39e3653baf197fa164e0[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Mon Nov 22 18:06:45 2021 +0100
+
+    change spotsSchema
+
+[33mcommit 99af3c06987ae5a81be90537279068acc214a600[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Thu Nov 11 18:48:16 2021 +0100
+
+    modify getSpotsAroundMe now check by pc
+
+[33mcommit e21a34c582bf3d56bf69f75cec159abf3ea958dc[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Nov 10 19:39:13 2021 +0100
+
+    create getSpotAroundMe endpoint
+
+[33mcommit 31498d4772840cf82c68295adcdf6d8237386f9f[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Wed Nov 10 01:05:57 2021 +0100
+
+    create routesSpots, create spots.controllers
+
+[33mcommit aacc8f31b7c9cda7194110cff77c292a75c312bc[m
+Author: leoncan122 <leon.can122@gmail.com>
+Date:   Thu Nov 4 18:39:37 2021 +0100
+
+    add cors, create add-spot endpoint
+
+[33mcommit f61e1cda262bade10adace62b032452b44a4ce48[m
+Author: leoncan122 <77274667+leoncan122@users.noreply.github.com>
+Date:   Tue Nov 2 00:29:44 2021 +0100
+
+    Initial commit

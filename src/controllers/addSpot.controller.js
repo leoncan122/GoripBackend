@@ -3,7 +3,7 @@ const { downloadImageAws, uploadImageAws } = require("../middlewares/s3Bucket");
 
 exports.addSpot = async (req, res) => {
   const spot = req.body;
-  spot.photo = req.url;
+  // spot.photo = req.url;
   try {
     const existingSpot = await Spot.find({ address: spot.address });
     //is not a promise because i want to save the spot even if the photo it not saved
