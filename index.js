@@ -4,7 +4,6 @@ const main = require("./src/database/connectBD");
 const spots = require("./src/routes/routesSpots");
 const auth = require("./src/routes/authRoutes");
 const { Server } = require("socket.io");
-const fileUpload = require("express-fileupload");
 require("dotenv").config();
 
 const app = express();
@@ -21,7 +20,6 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
   },
 });
-app.use(fileUpload());
 app.use(express.json());
 
 const corsOptions = {
@@ -30,8 +28,6 @@ const corsOptions = {
   "Access-Control-Allow-Headers": ["Authorization"],
 };
 app.use(cors(corsOptions));
-
-app.use(fileUpload());
 app.use(express.json());
 //conectamos la BD
 main();

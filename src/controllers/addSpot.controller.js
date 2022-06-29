@@ -1,18 +1,22 @@
 const Spot = require("../database/spotSchema");
-const { downloadImageAws, uploadImageAws } = require("../middlewares/s3Bucket");
+const {
+  downloadImageAws,
+  uploadImageAwsTest,
+} = require("../middlewares/s3Bucket");
 
 exports.addSpot = async (req, res) => {
   const spot = req.body;
-  // spot.photo = req.url;
   try {
     const existingSpot = await Spot.find({ address: spot.address });
     //is not a promise because i want to save the spot even if the photo it not saved
 
-    //change photo propertie from base64 to s3 bucket url
-    spot.photo = uploadImageAws(req);
-
-    const data = new Spot(spot);
     if (existingSpot.length === 0) {
+      await uploadImageAwsTest(req.file).then(
+        (result) => (spot.photo = result.Location)
+      );
+      console.log(spot);
+      const data = new Spot(spot);
+
       await data.save();
 
       return res.status(201).send(spot);
@@ -38,17 +42,6 @@ exports.getSpotsAroundMe = async (req, res) => {
 
   try {
     const spots = await Spot.find({ city: city });
-
-    // const modifiedSpots = spots.map((spot) => ({
-    //   ...spot,
-    //   photo: downloadImageAws(spot.photo).then((data) => {
-    //     const x = data.Body.toString("utf-8"); // Use the encoding necessary
-    //     // console.log(spot);
-    //     return x;
-    //   }),
-    // }));
-    // console.log(modifiedSpots);
-
     res.status(200).send(spots);
   } catch (error) {
     res.status(500).send({ msg: error });
@@ -69,8 +62,11 @@ exports.downloadSpotImage = async (req, res) => {
   const { id } = req.params;
   try {
     downloadImageAws(id).then((data) => {
-      const base64 = data.Body.toString("utf-8"); // Use the encoding necessary
-      res.status(200).send({ photo: base64 });
+      const b64 = Buffer.from(data.Body).toString("base64");
+      // IF THE ABOVE LINE DOES NOT WORK, TRY THIS:
+      // const b64 = data.photo.Body.toString('base64');
+      // CHANGE THIS IF THE IMAGE YOU ARE WORKING WITH IS .jpg OR WHATEVER
+      res.status(200).send({ b64: b64 });
     });
   } catch (error) {
     res.status(500).send({ msg: error });
