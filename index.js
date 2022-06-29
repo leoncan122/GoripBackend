@@ -13,7 +13,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origins: [
-      "https://gorip.fun",
+      "https://gorip.netlify.app",
       "localhost:4200",
       "https://goripp.herokuapp.com",
     ],
