@@ -4,16 +4,18 @@ const fs = require("fs");
 const { AWS_ACCESS_KEY, AWS_SECRET_KEY, AWS_URL_IMG } = process.env;
 
 aws.config.update({
-  accessKeyId: AWS_ACCESS_KEY,
-  secretAccessKey: AWS_SECRET_KEY,
   region: "eu-west-3",
+  credentials: {
+    accessKeyId: AWS_ACCESS_KEY,
+    secretAccessKey: AWS_SECRET_KEY,
+  },
 });
 
 exports.uploadImageAwsTest = (file) => {
   console.log(file.filename);
   const fileStream = fs.createReadStream(file.path);
   const s3 = new aws.S3({
-    params: { Bucket: "gorip-images" },
+    params: { Bucket: "gorip-images", Key: AWS_SECRET_KEY },
   });
   const uploadParams = {
     Key: file.filename,
